@@ -1,9 +1,14 @@
 import React from 'react';
 import ThreeScene from './ThreeScene';
+import { useNavigate } from 'react-router-dom';
+
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
   const handleStartLearning = () => {
-    showNotification('🎉 Welcome to your cultural journey! Let\'s start learning!');
+    navigate('/learning');
   };
 
   const handleExplore3D = () => {

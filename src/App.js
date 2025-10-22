@@ -8,6 +8,10 @@ import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import './App.css';
 import { supabase } from "../src/utils/supabase.ts";
+import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import LearningPage from './components/LearningPage'; // Create this component
+import Home from './components/Home';
 
 
 function App() {
@@ -42,14 +46,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Navigation />
-      <Hero />
-      <Features />
-      <InteractiveLearning />
-      <CallToAction />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/learning" element={<LearningPage/>}/>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
+    </BrowserRouter>
+    // <div className="App">
+    //   <Navigation />
+    //   <Hero />
+    //   <Features />
+    //   <InteractiveLearning />
+    //   <CallToAction />
+    //   <Footer />
+    // </div>
   );
 }
 
