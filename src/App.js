@@ -7,9 +7,26 @@ import InteractiveLearning from './components/InteractiveLearning';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import './App.css';
+import { supabase } from "../src/utils/supabase.ts";
+
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    async function getTodos() {
+      const { data: todos } = await supabase.from('todos').select()
+
+      if (todos?.length > 1) {
+        setTodos(todos)
+      }
+    }
+
+    getTodos()
+  }, [])
+
+  console.log("todos",todos)
 
   useEffect(() => {
     // Simulate loading time
