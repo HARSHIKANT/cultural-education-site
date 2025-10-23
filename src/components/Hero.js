@@ -8,7 +8,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleStartLearning = () => {
-    navigate('/learning');
+    navigate('/dashboard');
   };
 
   const handleExplore3D = () => {

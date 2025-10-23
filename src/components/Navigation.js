@@ -1,20 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const handleNavClick = (e, target) => {
     e.preventDefault();
 
     if (target === 'home') {
-      // ✅ Navigate to home page
       navigate('/');
       return;
-    } else if (target === 'learn') {
-      // Navigate to learning page
-      navigate('/learning');
+    } else if (target === 'dashboard') {
+      navigate('/dashboard');
+      return;
+    } else if (target === 'login') {
+      navigate('/login');
       return;
     }
 
@@ -26,7 +28,7 @@ const Navigation = () => {
         block: 'start',
       });
     } else {
-      // If you’re on another route, go home first, then scroll
+      // If you're on another route, go home first, then scroll
       navigate('/');
       setTimeout(() => {
         const element = document.querySelector(`#${target}`);
@@ -37,6 +39,11 @@ const Navigation = () => {
     }
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-brand">
@@ -44,9 +51,23 @@ const Navigation = () => {
       </div>
       <div className="nav-links">
         <a href="#home" className="nav-link" onClick={(e) => handleNavClick(e, 'home')}>Home</a>
-        <a href="#learn" className="nav-link" onClick={(e) => handleNavClick(e, 'learn')}>Learn</a>
-        <a href="#games" className="nav-link" onClick={(e) => handleNavClick(e, 'games')}>Games</a>
-        <a href="#about" className="nav-link" onClick={(e) => handleNavClick(e, 'about')}>About</a>
+        <a href="#features" className="nav-link" onClick={(e) => handleNavClick(e, 'features')}>Features</a>
+        <a href="#interactive" className="nav-link" onClick={(e) => handleNavClick(e, 'interactive')}>Learning</a>
+        <a href="#cta" className="nav-link" onClick={(e) => handleNavClick(e, 'cta')}>About</a>
+        
+        {/* Authentication-based navigation */}
+        {user ? (
+          <>
+            <a href="#dashboard" className="nav-link" onClick={(e) => handleNavClick(e, 'dashboard')}>Dashboard</a>
+            <button className="nav-link sign-out-btn" onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <a href="#login" className="nav-link login-btn" onClick={(e) => handleNavClick(e, 'login')}>
+            Sign In
+          </a>
+        )}
       </div>
     </nav>
   );
