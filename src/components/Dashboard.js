@@ -198,6 +198,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <header className="dashboard-header">
         <div className="header-left">
+          
           <h1>Welcome, {user?.email}!</h1>
           <div className="header-stats">
             <span className="stat-item">Score: {userProgress?.total_score || 0}</span>
@@ -205,6 +206,7 @@ const Dashboard = () => {
             <span className="stat-item">Tasks: {userProgress?.completed_tasks || 0}</span>
           </div>
         </div>
+        <button onClick={() => navigate('/')} className='Back-to-home-dashboard'>Back to Home</button>
         <button onClick={handleSignOut} className="sign-out-btn">
           Sign Out
         </button>

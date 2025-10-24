@@ -4,6 +4,21 @@
   padding: 20px;
 }
 
+.Back-to-home-dashboard {
+  margin-left: 850px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+}
+.Back-to-home-dashboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(253, 253, 253, 0.2);
+  cursor: pointer;
+}
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -38,17 +53,19 @@
 }
 
 .sign-out-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .sign-out-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(253, 253, 253, 0.2);
+  cursor: pointer;
 }
 
 .game-board {
