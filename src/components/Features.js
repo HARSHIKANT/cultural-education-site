@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navigation from './Navigation';
+
 
 const Features = () => {
+  const navigate = useNavigate();
   const features = [
     {
       icon: '🛕 🕌',
@@ -35,7 +39,10 @@ const Features = () => {
       'Delicious Food': '🍛 Explore the diverse and flavorful cuisine of India!',
       'Festivals': '🎪 Celebrate the vibrant festivals of India!'
     };
-    
+    if(feature === 'Famous Monuments') {
+      navigate('/monuments');
+      return;
+    }
     showNotification(messages[feature] || '🌟 Explore this amazing feature!');
   };
 

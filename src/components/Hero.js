@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   const handleExplore3D = () => {
-    showNotification('🌟 Explore the amazing 3D world of Indian culture!');
+    navigate('/monuments');
   };
 
   const showNotification = (message) => {

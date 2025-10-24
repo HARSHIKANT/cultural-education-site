@@ -1,0 +1,180 @@
+/* LevelCard Component Styles */
+.level-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.level-card:hover:not(.locked) {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.level-card:active:not(.locked) {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Stars Container */
+.stars-container {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+  justify-content: center;
+}
+
+.star {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.star.filled {
+  filter: grayscale(0%);
+  animation: starGlow 2s ease-in-out infinite;
+}
+
+.star.empty {
+  opacity: 0.3;
+}
+
+@keyframes starGlow {
+  0%, 100% { 
+    transform: scale(1);
+    filter: grayscale(0%) brightness(1);
+  }
+  50% { 
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1.2);
+  }
+}
+
+/* Level Circle */
+.level-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.level-card:hover:not(.locked) .level-circle {
+  box-shadow: 0 12px 35px rgba(78, 205, 196, 0.6);
+  transform: scale(1.1);
+}
+
+.level-number {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Completed State */
+.level-card.completed .level-circle {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.level-card.completed:hover .level-circle {
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+}
+
+/* Locked State */
+.level-card.locked {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.level-card.locked .level-circle {
+  background: linear-gradient(135deg, #ccc 0%, #999 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.level-card.locked .level-number {
+  color: #666;
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.lock-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .level-card {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .level-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .level-number {
+    font-size: 1.8rem;
+  }
+  
+  .star {
+    font-size: 1rem;
+  }
+  
+  .lock-overlay {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .lock-icon {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .level-number {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+  
+  .lock-overlay {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .lock-icon {
+    font-size: 1rem;
+  }
+}

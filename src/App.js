@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import LearningPage from './components/LearningPage';
 import LoadingScreen from './components/LoadingScreen';
 import './App.css';
+import Monuments from './components/Monuments';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,7 +17,7 @@ function App() {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 2000);
+    }, 2);
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,6 +40,7 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route path='/monuments' element={<Monuments/>} />
           <Route 
             path="/learning/:levelId/:taskId" 
             element={
