@@ -127,8 +127,8 @@ This project is open source and available under the MIT License.
 ## Support
 
 For questions or support, please contact:
-- Email: hello@culturalexplorer.com
-- Phone: +91 98765 43210
+- Email: harshikantdubey999@gmail.com
+- Phone: +91 7091157431
 
 ---
 
